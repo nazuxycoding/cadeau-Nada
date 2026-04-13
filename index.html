@@ -12,165 +12,141 @@
             align-items: center;
             padding: 20px;
             color: #d81b60;
+            min-height: 100vh;
         }
 
-        h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px #ffc1e3; text-align: center; }
-
-        .flower-container { font-size: 50px; margin: 20px; animation: bounce 2s infinite; }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Section Poème */
-        .poem-section {
-            background: #ffffff;
-            border: 2px dashed #ffc1e3;
-            padding: 25px;
-            border-radius: 15px;
-            max-width: 550px;
-            margin: 20px 0;
-            line-height: 1.6;
-            color: #ad1457;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        /* Section Lettre */
-        .letter-content {
-            background: #ffffff;
-            border-left: 5px solid #d81b60;
-            padding: 25px;
-            max-width: 600px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-top: 20px;
-            line-height: 1.6;
-        }
-
-        /* Liste de souhaits */
-        .wishlist-container {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            width: 320px;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        input[type="text"] { padding: 10px; border: 2px solid #ffc1e3; border-radius: 5px; width: 70%; margin-bottom: 10px; }
-        
-        button {
-            background-color: #d81b60;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+        /* --- STYLE DE L'ENVELOPPE --- */
+        .envelope-wrapper {
             cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
+            transition: 0.5s;
+            text-align: center;
+            margin-top: 100px;
         }
-        button:hover { background-color: #ad1457; transform: scale(1.05); }
 
+        .envelope {
+            font-size: 150px;
+            display: block;
+            line-height: 1;
+        }
+
+        .click-text {
+            font-weight: bold;
+            margin-top: 20px;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+
+        /* --- CONTENU CACHÉ AU DÉBUT --- */
+        #mainContent {
+            display: none; /* Caché par défaut */
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* --- STYLES DU CONTENU --- */
+        h1 { font-size: 2.5rem; text-shadow: 2px 2px #ffc1e3; text-align: center; }
+        .flower-container { font-size: 50px; margin: 20px; animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        .poem-section {
+            background: white; border: 2px dashed #ffc1e3; padding: 25px;
+            border-radius: 15px; max-width: 550px; margin: 20px 0;
+            line-height: 1.6; color: #ad1457; text-align: center;
+        }
+
+        .letter-content {
+            background: white; border-left: 5px solid #d81b60; padding: 25px;
+            max-width: 600px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 20px; line-height: 1.6;
+        }
+
+        .wishlist-container {
+            background: white; padding: 25px; border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 320px;
+            text-align: center; margin: 40px 0;
+        }
+
+        input[type="text"] { padding: 10px; border: 2px solid #ffc1e3; border-radius: 5px; width: 70%; }
+        button { background-color: #d81b60; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        
         ul { list-style: none; padding: 0; text-align: left; }
         li { background: #fff0f5; margin: 8px 0; padding: 10px; border-radius: 4px; display: flex; align-items: center; }
-        input[type="checkbox"] { margin-right: 10px; transform: scale(1.2); }
-
         .audio-container { margin: 20px 0; text-align: center; }
-        iframe { border-radius: 12px; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-    <h1>🌸 Happy Birthday Nada 🌸</h1>
-    
-    <div class="flower-container">🌷 ✨ 🌻 ✨ 🌹</div>
+    <div class="envelope-wrapper" id="envelope" onclick="openEnvelope()">
+        <div class="envelope">✉️</div>
+        <div class="click-text">Click to open your surprise, Nada...</div>
+    </div>
 
-    <div class="audio-container">
+    <div id="mainContent">
+        <h1>🌸 Happy Birthday Nada 🌸</h1>
+        
+        <div class="flower-container">🌷 ✨ 🌻 ✨ 🌹</div>
+
+         <div class="audio-container">
         <p>🎵 Listen to this piano for you :</p>
         <iframe width="300" height="80" src="https://www.youtube.com/embed/wqdV1ybjzOE?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 
-    <div class="poem-section">
-        <h3>A Poem for My Dear Sister</h3>
-        <p>
-            Through my eyes, every detail is a grace,<br>
-            The way your curly hair frames your face.<br>
-            That charming smile that lights up the room,<br>
-            Like a flower in its most beautiful bloom.<br><br>
-            I see the depth in your piercing eyes,<br>
-            And how you carry yourself, so brave and wise.<br>
-            Your warm embrace is my safest place,<br>
-            A gift of love that time can't erase.<br><br>
-            You stand so strong, a fortress in the gale,<br>
-            But even the strongest can feel a bit frail.<br>
-            Don't hide the tears or the weary sigh,<br>
-            You can be vulnerable beneath this sky.<br><br>
-            For I am here to hold you, to listen, to stay,<br>
-            To be your shield at the end of the day.
-        </p>
-    </div>
+        <div class="poem-section">
+            <h3>A Poem for My Dear Sister</h3>
+            <p>
+                Through my eyes, every detail is a grace,<br>
+                The way your curly hair frames your face.<br>
+                That charming smile that lights up the room,<br>
+                Like a flower in its most beautiful bloom.<br><br>
+                I see the depth in your piercing eyes,<br>
+                And how you carry yourself, so brave and wise.<br>
+                Your warm embrace is my safest place,<br>
+                A gift of love that time can't erase.<br><br>
+                You stand so strong, a fortress in the gale,<br>
+                But even the strongest can feel a bit frail.<br>
+                Don't hide the tears or the weary sigh,<br>
+                You can be vulnerable beneath this sky.<br><br>
+                For I am here to hold you, to listen, to stay,<br>
+                To be your shield at the end of the day.
+            </p>
+        </div>
 
-    <div class="letter-content">
-        <h3>My Letter to You</h3>
-        <p>Dear Nada,</p>
-        <p>
-            I'm sending you this letter because I wanted to give you something special. 
-            Even if I'd rather do it in real life, I want you to understand how special you truly are to me. 
-            Maybe you don't realize it enough. Maybe we don't talk as much as we did when we lived together, 
-            and I hate how hard it is to walk past your room and see the door wide open, 
-            the bed made, and your desk empty.
-        </p>
-        <p>
-            I hate that I don't hear your footsteps anymore, that I can't borrow your stuff, 
-            get your advice, or joke about our parents' fights. I miss knocking on my wall 
-            so you could hear it. Every time I write in my journal about the things that keep me going, 
-            your name is on the page. You don't know how different my life would have been without you. 
-        </p>
-        <p>
-            You are not only my older sister, you were my first best friend and the one who helped raise me. 
-            You are my inspiration. Whenever something was bothering me, telling you would make me feel at ease. 
-            Thank you for shielding me. Thank you for trying to give me the best childhood you could. 
-            I am forever grateful to you.
-        </p>
-        <p>
-            I love you more than anyone, even more than myself. I would be the happiest person 
-            if I could take the weight you've been holding on your shoulders. I can't imagine 
-            all the pressure and responsibilities you have. You've achieved so much and succeeded 
-            without having someone to guide you, and I am so proud of you for that. 
-        </p>
-        <p>
-            Nada, you don't have to be "successful" for me to be proud of you. I just want you to be happy, that 
-            would be the biggest success. I created this little gift for you with code, since I have a little experience now!
-        </p>
-        <p><strong>happy birthday and I love you infinitely. ❤️</strong></p>
-    </div>
+        <div class="letter-content">
+            <h3>My Letter to You</h3>
+            <p>Dear Nada,</p>
+            <p>[Colle ici le long texte de ta lettre...]</p>
+            <p><strong>I love you infinitely. ❤️</strong></p>
+        </div>
 
-    <div class="wishlist-container">
-        <h3>🎁 Cadeaux que tu aimerais recevoir</h3>
-        <input type="text" id="giftInput" placeholder="Écris une envie ici...">
-        <button onclick="addGift()">Ajouter</button>
-        <ul id="giftList"></ul>
+        <div class="wishlist-container">
+            <h3>🎁 Cadeaux que tu aimerais recevoir</h3>
+            <input type="text" id="giftInput" placeholder="Une envie ?">
+            <button onclick="addGift()">Ajouter</button>
+            <ul id="giftList"></ul>
+        </div>
     </div>
 
     <script>
-      const motDePasse = prompt("Entre le mot de passe secret (indice : ta date de naissance) :");
+           const motDePasse = prompt("Entre le mot de passe secret (indice : ta date de naissance) :");
 if (motDePasse !== "1234") { // Remplace 1234 par le vrai code
     alert("Mauvais mot de passe !");
     document.body.innerHTML = "<h1>Accès refusé 🔒</h1>";
 }
+        function openEnvelope() {
+            // Cache l'enveloppe
+            document.getElementById('envelope').style.display = 'none';
+            // Affiche le contenu
+            document.getElementById('mainContent').style.display = 'flex';
+        }
+
         function addGift() {
             const input = document.getElementById('giftInput');
             const list = document.getElementById('giftList');
-            
             if (input.value.trim() !== "") {
                 const li = document.createElement('li');
-                li.innerHTML = `
-                    <input type="checkbox">
-                    <span>${input.value}</span>
-                    <span style="margin-left:auto; cursor:pointer; color:#d81b60; font-weight:bold;" onclick="this.parentElement.remove()">✕</span>
-                `;
+                li.innerHTML = `<input type="checkbox"> <span>${input.value}</span>`;
                 list.appendChild(li);
                 input.value = "";
             }
