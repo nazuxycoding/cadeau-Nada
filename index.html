@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Joyeux Anniversaire !</title>
+    <style>
+        body {
+            background-color: #fff5f8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: #d81b60;
+        }
+
+        h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px #ffc1e3; text-align: center; }
+
+        .flower-container { font-size: 50px; margin: 20px; animation: bounce 2s infinite; }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Style de la lettre */
+        #letter-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .letter-content {
+            display: none; /* Cachée par défaut */
+            background: #ffffff;
+            border-left: 5px solid #d81b60;
+            padding: 20px;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            line-height: 1.6;
+            animation: fadeIn 1.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Liste de cadeaux */
+        .wishlist-container {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 320px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        input { padding: 10px; border: 2px solid #ffc1e3; border-radius: 5px; width: 70%; }
+
+        button {
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover { background-color: #ad1457; transform: scale(1.05); }
+
+        ul { list-style: none; padding: 0; text-align: left; }
+        li { background: #fff0f5; margin: 5px 0; padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; }
+    </style>
+</head>
+<body>
+
+    <h1>🌸 Joyeux Anniversaire ! 🌸</h1>
+    
+    <div class="flower-container">
+        🌷 ✨ 🌻 ✨ 🌹 ✨ 🌺
+    </div>
+
+    <div id="letter-section">
+        <button onclick="revealLetter()">💌 Cliquer pour lire ma lettre</button>
+        <div id="secretLetter" class="letter-content">
+            <h3>Ma chère sœur,</h3>
+            <p>
+                Je voulais profiter de ce petit site codé juste pour toi pour te dire 
+                à quel point tu es exceptionnelle. Merci d'être toujours là pour moi !
+            </p>
+            <p>
+                Que cette année soit remplie de bonheur, de rires et de réussite. 
+                Profite bien de TA journée ! 🎂
+            </p>
+            <p><strong>Ton frère / Ta sœur qui t'aime ❤️</strong></p>
+        </div>
+    </div>
+
+    <div class="wishlist-container">
+        <h3>🎁 Ma Liste de Souhaits</h3>
+        <p style="font-size: 0.9rem; color: #666;">Note ici ce qui te ferait plaisir :</p>
+        <input type="text" id="giftInput" placeholder="Ex: Un parfum...">
+        <button onclick="addGift()">Ajouter</button>
+        <ul id="giftList"></ul>
+    </div>
+
+    <script>
+        const motDePasse = prompt("Entre le mot de passe secret (indice : ta date de naissance) :");
+if (motDePasse !== "1234") { // Remplace 1234 par le vrai code
+    alert("Mauvais mot de passe !");
+    document.body.innerHTML = "<h1>Accès refusé 🔒</h1>";
+}
+        // Fonction pour afficher la lettre
+        function revealLetter() {
+            const letter = document.getElementById('secretLetter');
+            letter.style.display = 'block';
+            window.scrollTo({ top: letter.offsetTop - 50, behavior: 'smooth' });
+        }
+
+        // Fonction pour la liste de cadeaux
+        function addGift() {
+            const input = document.getElementById('giftInput');
+            const list = document.getElementById('giftList');
+            
+            if (input.value.trim() !== "") {
+                const li = document.createElement('li');
+                li.innerHTML = `<span>${input.value}</span> <span style="cursor:pointer" onclick="this.parentElement.remove()">❌</span>`;
+                list.appendChild(li);
+                input.value = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
