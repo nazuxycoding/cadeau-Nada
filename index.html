@@ -22,7 +22,6 @@
             50% { transform: translateY(-20px); }
         }
 
-        /* Style du Poème */
         .poem-section {
             background: #ffffff;
             border: 2px dashed #ffc1e3;
@@ -36,7 +35,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        /* Style de la lettre */
         .letter-content {
             background: #ffffff;
             border-left: 5px solid #d81b60;
@@ -48,7 +46,6 @@
             line-height: 1.6;
         }
 
-        /* Liste de cadeaux */
         .wishlist-container {
             background: white;
             padding: 25px;
@@ -62,14 +59,8 @@
         input[type="text"] { padding: 10px; border: 2px solid #ffc1e3; border-radius: 5px; width: 70%; margin-bottom: 10px; }
         
         button {
-            background-color: #d81b60;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
+            background-color: #d81b60; color: white; border: none; padding: 10px 20px;
+            border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s;
         }
         button:hover { background-color: #ad1457; transform: scale(1.05); }
 
@@ -77,7 +68,7 @@
         li { background: #fff0f5; margin: 8px 0; padding: 10px; border-radius: 4px; display: flex; align-items: center; }
         input[type="checkbox"] { margin-right: 10px; transform: scale(1.2); }
 
-        .audio-container { margin: 20px 0; text-align: center; font-size: 0.9rem; }
+        .audio-container { margin: 20px 0; text-align: center; }
     </style>
 </head>
 <body>
@@ -87,9 +78,10 @@
     <div class="flower-container">🌷 ✨ 🌻 ✨ 🌹</div>
 
     <div class="audio-container">
-        <p>🎵 Appuie sur Play pour l'ambiance :</p>
+        <p>🎵 Press Play for a surprise :</p>
         <audio controls>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            <source src="videoplayback.weba" type="audio/webm">
+            Ton navigateur ne supporte pas le lecteur audio.
         </audio>
     </div>
 
@@ -97,12 +89,12 @@
         <h3>A Poem for My Dear Sister</h3>
         <p>
             Through my eyes, every detail is a grace,<br>
-            The way your <strong>curly hair</strong> frames your face.<br>
-            That <strong>charming smile</strong> that lights up the room,<br>
+            The way your curly hair frames your face.<br>
+            That charming smile that lights up the room,<br>
             Like a flower in its most beautiful bloom.<br><br>
-            I see the depth in your <strong>piercing eyes</strong>,<br>
+            I see the depth in your piercing eyes,<br>
             And how you carry yourself, so brave and wise.<br>
-            Your <strong>warm embrace</strong> is my safest place,<br>
+            Your warm embrace is my safest place,<br>
             A gift of love that time can't erase.<br><br>
             You stand so strong, a fortress in the gale,<br>
             But even the strongest can feel a bit frail.<br>
@@ -116,8 +108,20 @@
     <div class="letter-content">
         <h3>My Letter to You</h3>
         <p>Dear Nada,</p>
-        <p>[Ici, colle le long texte que nous avons corrigé en anglais : "I'm sending you this letter because..."]</p>
-        <p><strong>I love you more than words can say. ❤️</strong></p>
+        <p>[Dear Nada,
+
+I'm sending you this letter because I wanted to give you something special. Even if I'd rather do it in real life, I want you to understand how special you truly are to me. Maybe you don't realize it enough. Maybe we don't talk as much as we did when we lived together, and I hate how hard it is to walk past your room and see the door wide open, the bed made, and your desk empty.
+
+I hate that I don't hear your footsteps anymore, that I can't borrow your stuff, get your advice, or joke about our parents' fights. I miss knocking on my wall so you could hear it. Every time I write in my journal about the things that keep me going, your name is on the page. You don't know how different my life would have been without you.
+
+You are not only my older sister, you were my first best friend and the one who helped raise me. You are my inspiration. Whenever something was bothering me, telling you would make me feel at ease. Thank you for shielding me. Thank you for trying to give me the best childhood you could. I am forever grateful to you.
+
+I love you more than anyone, even more than myself. I would be the happiest person if I could take the weight you've been holding on your shoulders. I can't imagine all the pressure and responsibilities you have. You've achieved so much and succeeded without having someone to guide you, and I am so proud of you for that.
+
+Nada, you don't have to be 'successful' for me to be proud of you. I just want you to be happy, that would be the biggest success. I created this little gift for you with code, since I have a little experience now!
+
+Happy birthday and I love you infinitely]</p>
+        <p><strong>I love you infinitely. ❤️</strong></p>
     </div>
 
     <div class="wishlist-container">
@@ -128,7 +132,7 @@
     </div>
 
     <script>
-       const motDePasse = prompt("Entre le mot de passe secret (indice : ta date de naissance) :");
+        const motDePasse = prompt("Entre le mot de passe secret (indice : ta date de naissance) :");
 if (motDePasse !== "1234") { // Remplace 1234 par le vrai code
     alert("Mauvais mot de passe !");
     document.body.innerHTML = "<h1>Accès refusé 🔒</h1>";
@@ -136,7 +140,6 @@ if (motDePasse !== "1234") { // Remplace 1234 par le vrai code
         function addGift() {
             const input = document.getElementById('giftInput');
             const list = document.getElementById('giftList');
-            
             if (input.value.trim() !== "") {
                 const li = document.createElement('li');
                 li.innerHTML = `
