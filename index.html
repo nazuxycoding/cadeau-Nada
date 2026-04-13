@@ -6,7 +6,7 @@
     <style>
         body {
             background-color: #fff5f8;
-            font-family: sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -14,35 +14,38 @@
             color: #d81b60;
         }
 
-        h1 { font-size: 2.5rem; text-align: center; text-shadow: 2px 2px #ffc1e3; }
+        h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px #ffc1e3; text-align: center; }
 
-        .flower-container { font-size: 50px; margin: 10px; animation: bounce 2s infinite; }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-
-        /* Style Parchemin pour le poème */
-        .poem-scroll {
-            background: #fdf5e6;
-            border: 2px solid #d2b48c;
-            padding: 30px;
-            border-radius: 5px;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin: 20px 0;
-            position: relative;
-            line-height: 1.6;
-            font-style: italic;
-            color: #5d4037;
+        .flower-container { font-size: 50px; margin: 20px; animation: bounce 2s infinite; }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
-        /* Lettre principale */
-        .letter-content {
-            background: white;
+        /* Style du Poème */
+        .poem-section {
+            background: #ffffff;
+            border: 2px dashed #ffc1e3;
             padding: 25px;
+            border-radius: 15px;
+            max-width: 550px;
+            margin: 20px 0;
+            line-height: 1.6;
+            color: #ad1457;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Style de la lettre */
+        .letter-content {
+            background: #ffffff;
+            border-left: 5px solid #d81b60;
+            padding: 25px;
+            max-width: 600px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 600px;
             margin-top: 20px;
-            border-left: 5px solid #d81b60;
+            line-height: 1.6;
         }
 
         /* Liste de cadeaux */
@@ -56,61 +59,80 @@
             margin-top: 40px;
         }
 
-        input { padding: 10px; border: 2px solid #ffc1e3; border-radius: 5px; width: 70%; margin-bottom: 10px; }
-        button { background-color: #d81b60; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        input[type="text"] { padding: 10px; border: 2px solid #ffc1e3; border-radius: 5px; width: 70%; margin-bottom: 10px; }
         
+        button {
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        button:hover { background-color: #ad1457; transform: scale(1.05); }
+
         ul { list-style: none; padding: 0; text-align: left; }
         li { background: #fff0f5; margin: 8px 0; padding: 10px; border-radius: 4px; display: flex; align-items: center; }
-        input[type="checkbox"] { width: auto; margin-right: 10px; }
+        input[type="checkbox"] { margin-right: 10px; transform: scale(1.2); }
 
-        .audio-player { margin: 20px 0; }
+        .audio-container { margin: 20px 0; text-align: center; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <h1>🌸 Happy Birthday Nada 🌸</h1>
-
+    
     <div class="flower-container">🌷 ✨ 🌻 ✨ 🌹</div>
 
-    <div class="audio-player">
-        <p>🎵 Active la musique :</p>
-        <audio controls id="birthdaySong">
+    <div class="audio-container">
+        <p>🎵 Appuie sur Play pour l'ambiance :</p>
+        <audio controls>
             <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            </audio>
+        </audio>
     </div>
 
-    <div class="poem-scroll">
-        <h3>A Poem for My Strong Sister</h3>
+    <div class="poem-section">
+        <h3>A Poem for My Dear Sister</h3>
         <p>
-            You stand so tall, a fortress in the gale,<br>
-            A silent strength that never seems to fail.<br>
-            You hold the world upon your shoulders wide,<br>
-            With all the pressure hidden deep inside.<br><br>
-            But Nada, listen, you don't have to fight alone,<br>
-            You don't need a heart carved out of stone.<br>
-            I love your strength, it’s true, I always will,<br>
-            But I’m here for the moments when the world is still.<br><br>
-            Show me the tears, the cracks, the weary sigh,<br>
-            You can be vulnerable beneath this sky.<br>
-            For in your weakness, I find my place to be,<br>
-            The shield for you, as you have been for me.
+            Through my eyes, every detail is a grace,<br>
+            The way your <strong>curly hair</strong> frames your face.<br>
+            That <strong>charming smile</strong> that lights up the room,<br>
+            Like a flower in its most beautiful bloom.<br><br>
+            I see the depth in your <strong>piercing eyes</strong>,<br>
+            And how you carry yourself, so brave and wise.<br>
+            Your <strong>warm embrace</strong> is my safest place,<br>
+            A gift of love that time can't erase.<br><br>
+            You stand so strong, a fortress in the gale,<br>
+            But even the strongest can feel a bit frail.<br>
+            Don't hide the tears or the weary sigh,<br>
+            You can be vulnerable beneath this sky.<br><br>
+            For I am here to hold you, to listen, to stay,<br>
+            To be your shield at the end of the day.
         </p>
     </div>
 
     <div class="letter-content">
         <h3>My Letter to You</h3>
-        <p>Dear Nada, [Insère ici le texte de ta lettre que nous avons corrigé ensemble]</p>
+        <p>Dear Nada,</p>
+        <p>[Ici, colle le long texte que nous avons corrigé en anglais : "I'm sending you this letter because..."]</p>
+        <p><strong>I love you more than words can say. ❤️</strong></p>
     </div>
 
     <div class="wishlist-container">
         <h3>🎁 Cadeaux que tu aimerais recevoir</h3>
-        <p style="font-size: 0.8rem;">Coche-les quand tu les as !</p>
-        <input type="text" id="giftInput" placeholder="Ex: Un nouveau sac...">
+        <input type="text" id="giftInput" placeholder="Écris une envie ici...">
         <button onclick="addGift()">Ajouter</button>
         <ul id="giftList"></ul>
     </div>
 
     <script>
+       const motDePasse = prompt("Entre le mot de passe secret (indice : ta date de naissance) :");
+if (motDePasse !== "1234") { // Remplace 1234 par le vrai code
+    alert("Mauvais mot de passe !");
+    document.body.innerHTML = "<h1>Accès refusé 🔒</h1>";
+}
         function addGift() {
             const input = document.getElementById('giftInput');
             const list = document.getElementById('giftList');
@@ -120,7 +142,7 @@
                 li.innerHTML = `
                     <input type="checkbox">
                     <span>${input.value}</span>
-                    <span style="margin-left:auto; cursor:pointer; color:red;" onclick="this.parentElement.remove()">✕</span>
+                    <span style="margin-left:auto; cursor:pointer; color:#d81b60; font-weight:bold;" onclick="this.parentElement.remove()">✕</span>
                 `;
                 list.appendChild(li);
                 input.value = "";
