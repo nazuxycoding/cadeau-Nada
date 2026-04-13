@@ -22,6 +22,7 @@
             50% { transform: translateY(-20px); }
         }
 
+        /* Section Poème */
         .poem-section {
             background: #ffffff;
             border: 2px dashed #ffc1e3;
@@ -35,6 +36,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
+        /* Section Lettre */
         .letter-content {
             background: #ffffff;
             border-left: 5px solid #d81b60;
@@ -46,6 +48,7 @@
             line-height: 1.6;
         }
 
+        /* Liste de souhaits */
         .wishlist-container {
             background: white;
             padding: 25px;
@@ -59,8 +62,14 @@
         input[type="text"] { padding: 10px; border: 2px solid #ffc1e3; border-radius: 5px; width: 70%; margin-bottom: 10px; }
         
         button {
-            background-color: #d81b60; color: white; border: none; padding: 10px 20px;
-            border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s;
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
         }
         button:hover { background-color: #ad1457; transform: scale(1.05); }
 
@@ -69,6 +78,7 @@
         input[type="checkbox"] { margin-right: 10px; transform: scale(1.2); }
 
         .audio-container { margin: 20px 0; text-align: center; }
+        iframe { border-radius: 12px; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -77,13 +87,9 @@
     
     <div class="flower-container">🌷 ✨ 🌻 ✨ 🌹</div>
 
-   <div class="audio-container">
-        <p>🎵 Press Play for a surprise :</p>
-        <audio controls id="birthdayAudio">
-            <source src="videoplayback.weba" type="audio/webm">
-            <source src="videoplayback.mp3" type="audio/mpeg">
-            Ton navigateur ne supporte pas le lecteur audio.
-        </audio>
+    <div class="audio-container">
+        <p>🎵 Listen to this piano for you :</p>
+        <iframe width="300" height="80" src="https://www.youtube.com/embed/wqdV1ybjzOE?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 
     <div class="poem-section">
@@ -109,20 +115,36 @@
     <div class="letter-content">
         <h3>My Letter to You</h3>
         <p>Dear Nada,</p>
-        <p>[Dear Nada,
-
-I'm sending you this letter because I wanted to give you something special. Even if I'd rather do it in real life, I want you to understand how special you truly are to me. Maybe you don't realize it enough. Maybe we don't talk as much as we did when we lived together, and I hate how hard it is to walk past your room and see the door wide open, the bed made, and your desk empty.
-
-I hate that I don't hear your footsteps anymore, that I can't borrow your stuff, get your advice, or joke about our parents' fights. I miss knocking on my wall so you could hear it. Every time I write in my journal about the things that keep me going, your name is on the page. You don't know how different my life would have been without you.
-
-You are not only my older sister, you were my first best friend and the one who helped raise me. You are my inspiration. Whenever something was bothering me, telling you would make me feel at ease. Thank you for shielding me. Thank you for trying to give me the best childhood you could. I am forever grateful to you.
-
-I love you more than anyone, even more than myself. I would be the happiest person if I could take the weight you've been holding on your shoulders. I can't imagine all the pressure and responsibilities you have. You've achieved so much and succeeded without having someone to guide you, and I am so proud of you for that.
-
-Nada, you don't have to be 'successful' for me to be proud of you. I just want you to be happy, that would be the biggest success. I created this little gift for you with code, since I have a little experience now!
-
-Happy birthday and I love you infinitely]</p>
-        <p><strong>I love you infinitely. ❤️</strong></p>
+        <p>
+            I'm sending you this letter because I wanted to give you something special. 
+            Even if I'd rather do it in real life, I want you to understand how special you truly are to me. 
+            Maybe you don't realize it enough. Maybe we don't talk as much as we did when we lived together, 
+            and I hate how hard it is to walk past your room and see the door wide open, 
+            the bed made, and your desk empty.
+        </p>
+        <p>
+            I hate that I don't hear your footsteps anymore, that I can't borrow your stuff, 
+            get your advice, or joke about our parents' fights. I miss knocking on my wall 
+            so you could hear it. Every time I write in my journal about the things that keep me going, 
+            your name is on the page. You don't know how different my life would have been without you. 
+        </p>
+        <p>
+            You are not only my older sister; you were my first best friend and the one who helped raise me. 
+            You are my inspiration. Whenever something was bothering me, telling you would make me feel at ease. 
+            Thank you for shielding me. Thank you for trying to give me the best childhood you could. 
+            I am forever grateful to you.
+        </p>
+        <p>
+            I love you more than anyone, even more than myself. I would be the happiest person 
+            if I could take the weight you've been holding on your shoulders. I can't imagine 
+            all the pressure and responsibilities you have. You've achieved so much and succeeded 
+            without having someone to guide you, and I am so proud of you for that. 
+        </p>
+        <p>
+            Nada, you don't have to be "successful" for me to be proud of you. I just want you to be happy—that 
+            would be the biggest success. I created this little gift for you with code, since I have a little experience now!
+        </p>
+        <p><strong>happy birthday and I love you infinitely. ❤️</strong></p>
     </div>
 
     <div class="wishlist-container">
@@ -133,7 +155,7 @@ Happy birthday and I love you infinitely]</p>
     </div>
 
     <script>
-        const motDePasse = prompt("Entre le mot de passe secret (indice : ta date de naissance) :");
+      const motDePasse = prompt("Entre le mot de passe secret (indice : ta date de naissance) :");
 if (motDePasse !== "1234") { // Remplace 1234 par le vrai code
     alert("Mauvais mot de passe !");
     document.body.innerHTML = "<h1>Accès refusé 🔒</h1>";
@@ -141,6 +163,7 @@ if (motDePasse !== "1234") { // Remplace 1234 par le vrai code
         function addGift() {
             const input = document.getElementById('giftInput');
             const list = document.getElementById('giftList');
+            
             if (input.value.trim() !== "") {
                 const li = document.createElement('li');
                 li.innerHTML = `
